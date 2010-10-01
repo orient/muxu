@@ -1,0 +1,29 @@
+<div id="header">
+	<div id="header_content" class="container_12 no_bg">
+		<div id="logo" class="grid_2">
+			<a href=""><%= image_tag "miso_logo.png",:size=>"117x33" %></a>
+		</div>
+		<div class="grid_5">
+			<form action="/search" data-loader="true" id="search_media" method="get">
+				<input class="grid_4 alpha omega" autocomplete="off" id="main_searchbox" name="q" type="text" value="你在看什么？">
+				<input class="button blue grid_1 alpha alpha omega" id="search_button" name="commit" type="submit" value="搜索">
+			</form>
+		</div>
+		<div class="grid_4 prefix_1">
+			<ul class="signup" id="account_box" >
+			<% if @current_user %>
+				<li style="float: left;"><a href="http://gomiso.com/signup" class="signin_link"><%= @current_user.nickname%></a></li>
+				<li style="float: left;"><a href="http://gomiso.com/signup" class="signin_link">设置</a></li>
+				<li style="float: left;"><a href="http://gomiso.com/signup" class="signin_link">邀请</a></li>
+				<li style="float: left;"><%= link_to "退出", :controller=>"admin", :action=>"logout", :class=>"signin_link"%></li>
+				<% else %>
+			<li style="float: left;"><a href="../admin/login" class="signin_link">登录</a></li>
+			<li style="float: left;"><a href="../users/new" class="button green">注册</a></li>
+			<% end %>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+	

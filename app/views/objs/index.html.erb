@@ -1,0 +1,28 @@
+<h1>Listing objs</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Cat</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @objs.each do |obj| %>
+  <tr>
+    <td><%= obj.name %></td>
+    <td><%= obj.cat %></td>
+    <td><%= obj.content %></td>
+    <td><%= link_to 'Show', obj %></td>
+    <td><%= link_to 'Edit', edit_obj_path(obj) %></td>
+    <td><%= link_to 'Destroy', obj, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<% @objs = nil%>
+<br />
+
+<%= link_to 'New Obj', new_obj_path %>

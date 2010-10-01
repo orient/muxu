@@ -1,0 +1,13 @@
+搜索 <strong><%= @query %></strong> 获得 <%= @results['total_found'] %> 条匹配结果，用时 <%= @results['time'] %>秒。</br>
+<legend>查询统计：</legend>
+<% @results['words'].each do |word, info| %>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><%= word%></strong>在总共 <%= info['docs']%> 个文档中命中 <%= info['hits']%> 次。
+<% end %>
+<ol>
+<% @results['matches'].each do |doc| %>
+  <li>doc_id=<%= doc['id']%>, weight=<%= doc['weight']%>
+  <% doc['attrs'].each do |attr, value|
+    %>, <%= attr%>=<%= value%>
+  <% end %></li>
+<% end %>
+</ol>

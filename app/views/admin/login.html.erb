@@ -1,0 +1,43 @@
+<div id="main" class="container_12 no_bg">
+	<div id="signin" class="grid_10 prefix_1">
+		<div>
+		<h1>登录</h1>
+		</div>
+		
+		<% form_tag do %>
+    		<fieldset>
+			<table>
+				<tbody>
+				
+				<tr>
+					<th><label for="email">邮箱</label></th>
+					<td><%= text_field_tag :email, params[:email] %></td>
+					<td><p>新用户，请<a href="">注册</a></p></td>
+				</tr>
+				<tr>
+					<th><label for="password">密码</label></th>
+					<td> <%= password_field_tag :password, params[:password] %></td>
+					<td><p><a href="">忘记密码了？</a></p></td>
+				</tr>
+				
+				<tr>
+					<th></th>
+					<td><%= submit_tag "登录" %></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		
+			</fieldset>
+	  <% end %>
+
+		
+	</div>
+	<div class="clear"></div>
+	
+</div>
+<!-- end .container -->
+
+
+
+

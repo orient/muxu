@@ -1,0 +1,52 @@
+body {
+	
+	color: #333;
+	font-size: 12px;
+	padding: 0px;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-family: Georgia, serif;
+	font-weight: normal;
+	text-align: left;
+}
+
+h2 {
+	padding: 20px 0 0;
+	text-align: center;
+}
+
+p {
+
+	overflow: hidden;
+	
+}
+
+.border{border: 1px solid #646464;}
+
+.container_12 {
+	background: #fff url(../../img/12_col.gif) repeat-y;
+	margin-bottom: 20px;
+}
+
+.container_16 {
+	background: #fff url(../../img/16_col.gif) repeat-y;
+}
+
+.container_24 {
+	background: #fff url(../../img/24_col.gif) repeat-y;
+}
+/*
+ * additional styles
+ */
+
+

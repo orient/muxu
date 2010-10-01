@@ -1,0 +1,52 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div id="main" class="container_12 no_bg">
+	<div id="signup" class="grid_10 prefix_1">
+		<div>
+		<h1>注册</h1>
+		
+		</div>
+
+	<table>
+		<tbody>
+		<tr>
+			<th><label for="name">用户名</label></th>
+			<td> <%= f.text_field :nickname %></td>
+			<td><p>已注册用户，请<a href="">登录</a></p></td>
+		</tr>
+		<tr>
+			<th><label for="email">邮箱</label></th>
+			<td><%= f.text_field :email %></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th><label for="password">密码</label></th>
+			<td><%= f.password_field :password %></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th><label for="password_conform">确认密码</label></th>
+			<td><%= f.password_field :password_confirmation %></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><span><%= f.submit "注册" %></td>
+			<td></td>
+		</tr>
+		</tbody>
+	</table>
+
+<% end %>
