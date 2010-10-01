@@ -1,4 +1,21 @@
 Muxu::Application.routes.draw do
+  get "comments/create"
+
+  resources :objs do
+  	resources :comments
+  end
+
+  get "admin/login"
+  get "admin/index"
+  post "admin/login"
+
+  get "admin/logout"
+
+  resources :users
+  
+  get "search/index"
+  get "search/result"
+  post "search/result"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
