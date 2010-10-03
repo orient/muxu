@@ -1,0 +1,97 @@
+<div id="main" class="container_12 no_bg">
+	
+	<div id="message">	
+		<div class="grid_10 prefix_1 suffix_1 alpha omega">
+			<div class="text"><h1>咪嗖让你看的更有趣，更给力！</h1>
+			<h3>选择一个剧集看看大家都说什么。</h3>
+			</div>
+			<ul>
+			<% @comments_hot_index.each do |hot_comm|%>
+			
+			
+			<li class="grid_2"><p><%= image_tag hot_comm.obj.image.url(:medium)%></p><p><%= link_to hot_comm.obj.name, obj_path(hot_comm.obj)%></p></li>
+			<% end %>
+			</ul>
+		
+		</div>	
+	</div>
+	<!-- end promote -->
+	
+	<div id="promote" class="grid_12 bg">
+			
+		<ul id="intro">
+			<li class="grid_3 alpha omega">
+			<div class="content">
+				<h3>获得积分和<strong>勋章</strong></h3>
+				<p>
+				获得各种有趣的勋章，每次签到都可以获得积分。
+				</p>
+				<div class="image"></div>
+			</div>			
+			</li>
+			<li class="grid_3 alpha omega">
+			<div class="content">
+				<h3>获得积分和<strong>勋章</strong></h3>
+				<p>
+				获得各种有趣的勋章，每次签到都可以获得积分。
+				</p>
+				<div class="image"></div>
+			</div>			
+			</li>
+			<li class="grid_3 alpha omega">
+			<div class="content">
+				<h3>获得积分和<strong>勋章</strong></h3>
+				<p>
+				获得各种有趣的勋章，每次签到都可以获得积分。
+				</p>
+				<div class="image"></div>
+			</div>			
+			</li>
+			<li class="grid_3 alpha omega">
+			<div class="content">
+				<h3>获得积分和<strong>勋章</strong></h3>
+				<p>
+				获得各种有趣的勋章，每次签到都可以获得积分。
+				</p>
+				<div class="image"></div>
+			</div>			
+			</li>
+		</ul>
+		
+		
+		
+	</div>
+	<!-- end intorduction -->
+	<div id="activity" class="grid_12">
+		
+		<div class="grid_8 alpha">
+			<h1>最新动态</h1>
+			<ul class="grid_4 alpha">
+			<% @comments_index.each do |comm|%>
+				<li class="grid_4 alpha omega">
+				<div class="pics grid_1 alpha"><img width="60px" height="60px" src="" /></div>
+				<div class="content grid_3 alpha omega"><%= link_to comm.user.nickname, user_path(comm.user)%>正在观看<%= link_to comm.obj.name, obj_path(comm)%></div>
+				</li>
+			<% end %>
+				
+			</ul>
+			
+		</div>
+		<div class="grid_4 omega">
+			<h1>热门剧集</h1>
+			<% @comments_hot_index.each do |hot_comm|%>
+			<ul class="grid_4 alpha omega">
+				<li class="grid_4 alpha omega">
+					<div class="pics grid_2 alpha"><%= image_tag hot_comm.obj.image.url(:thumb)%></div>
+					<div class="content grid_2 omega"><%= link_to hot_comm.obj.name, obj_path(hot_comm)%></div>
+				</li>
+			<% end %>	
+			</ul>
+		</div>
+		
+		
+	</div>
+	<!-- end activity -->
+	<div class="clear"></div>
+	
+</div>
