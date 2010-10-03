@@ -1,64 +1,55 @@
-<% @user.objs.each do |comm|%>
-	<%= comm.name%>
-	<%= comm.content%>
-<% end %>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @user.gender %>
-</p>
-
-<p>
-  <b>Born:</b>
-  <%= @user.born %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Hashed password:</b>
-  <%= @user.hashed_password %>
-</p>
-
-<p>
-  <b>Salt:</b>
-  <%= @user.salt %>
-</p>
-
-<p>
-  <b>Nickname:</b>
-  <%= @user.nickname %>
-</p>
-
-<p>
-  <b>Mobile:</b>
-  <%= @user.mobile %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @user.city %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @user.address %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= @user.image %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div id="main" class="container_12 no_bg">
+	<div id="page_content">
+		<div class="user_info grid_8">
+			<a href="" class="grid_2"><%= image_tag @user.photo.url(:thumb)%></a>
+			<div class="grid_6 alpha omega">
+				<p><%=  @user.nickname%>name</p>
+				<p><a href="#" class="button green">关注TA</a></p>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="nav_col" class="grid_2">		
+		</div>
+		<div id="activity_col" class="grid_7 alpha">
+		<h3>最新动态</h3>
+		<div class="feed_items">
+			<%%>
+			<div class="feed_item">
+			<div class="item_header">
+				<div class="user_image" style="float:left;">
+					<a href=""><%= image_tag @user.photo.url(:thumb), :size=> "30x30"%></a>
+				</div>
+				<div class="feed_meta grid_6 omega">
+					<p class="author_action"><a href="member_page.html">小强</a>在<a href="item_page.html">big bang 第四季</a>签到</p>
+					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
+				</div>
+				<div class="feed_reaction"></div>
+			</div>
+			<div class="item_content">
+				<div class="checkin_image" style="float:left"><img src="" width="50px" height="75px"/></div>
+				<div class="checkin_body grid_5">在<a href="item_page.html">big bang 第四季</a>签到</div>
+			</div>
+			<div class="replay_content"></div>
+			<div class="replay_form"></div>
+			<div class="clear"></div>
+			</div>
+			
+		</div>
+		</div>
+		<div id="social_col" class="grid_3">
+			<div class="section"> 
+				<h4>TA的积分</h4>
+			</div>
+			<div class="section"> 
+				<h4>TA的勋章</h4>
+			</div>
+			<div class="section"> 
+				<h4>邀请好友</h4>
+			</div>
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	
+</div>
