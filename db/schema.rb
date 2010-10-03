@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101003081331) do
+ActiveRecord::Schema.define(:version => 20101003135548) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(:version => 20101003081331) do
   end
 
   add_index "comments", ["user_id"], :name => "FK_comments_user"
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "objs", :force => true do |t|
     t.string   "name"

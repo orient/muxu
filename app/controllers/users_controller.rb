@@ -16,7 +16,11 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-
+    if @current_user
+    	@friendship_with_current= Friendship.find_by_sql("select * from friendships where user_id=1 and friend_id=2")
+    	else
+    	@friendship_with_current = nil
+	end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }

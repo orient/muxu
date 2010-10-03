@@ -11,6 +11,8 @@ include Paperclip
 
 	has_many :comments
 	has_many :objs, :through=>:comments
+	has_many :friendships
+	has_many :friends, :through=>:friendships
 	
 	validates_presence_of :nickname
 	validates_presence_of :email

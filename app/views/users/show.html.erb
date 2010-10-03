@@ -3,8 +3,12 @@
 		<div class="user_info grid_8">
 			<a href="" class="grid_2"><%= image_tag @user.photo.url(:thumb)%></a>
 			<div class="grid_6 alpha omega">
-				<p><%=  @user.nickname%>name</p>
-				<p><a href="#" class="button green">关注TA</a></p>
+				<p><%=  @user.nickname%></p><p><%= @friendship_with_current%></p>
+				<% if @friendship_with_current %>
+				<p><%= link_to "取消关注", friendships_path(:friend_id=>@user),:method =>:delete, :class => "button green"%></p>
+				<%else%>
+				<p><%= link_to "关注TA", friendships_path(:friend_id=>@user),:method =>:post, :class => "button green"%></p>
+				<%end%>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -13,27 +17,27 @@
 		<div id="activity_col" class="grid_7 alpha">
 		<h3>最新动态</h3>
 		<div class="feed_items">
-			<%%>
+			<% @user.comments.each do |comm| %>
 			<div class="feed_item">
 			<div class="item_header">
 				<div class="user_image" style="float:left;">
 					<a href=""><%= image_tag @user.photo.url(:thumb), :size=> "30x30"%></a>
 				</div>
 				<div class="feed_meta grid_6 omega">
-					<p class="author_action"><a href="member_page.html">小强</a>在<a href="item_page.html">big bang 第四季</a>签到</p>
-					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
+					<p class="author_action"><%= @user.name%>在<%= link_to comm.obj.name, obj_path(comm.obj)%>签到</p>
+					<p class="feed_actions"><span><%= time_ago_in_words(comm.created_at)%></span><a href="">添加回复</a></p>
 				</div>
 				<div class="feed_reaction"></div>
 			</div>
 			<div class="item_content">
-				<div class="checkin_image" style="float:left"><img src="" width="50px" height="75px"/></div>
-				<div class="checkin_body grid_5">在<a href="item_page.html">big bang 第四季</a>签到</div>
+				<div class="checkin_image" style="float:left"><%= image_tag comm.obj.image.url(:thumb), :size=> "50x75"%></div>
+				<div class="checkin_body grid_5">在<%= link_to comm.obj.name, obj_path(comm.obj)%>签到</div>
 			</div>
 			<div class="replay_content"></div>
 			<div class="replay_form"></div>
 			<div class="clear"></div>
 			</div>
-			
+			<% end %>
 		</div>
 		</div>
 		<div id="social_col" class="grid_3">

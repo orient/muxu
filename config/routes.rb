@@ -1,4 +1,6 @@
 Muxu::Application.routes.draw do
+  resources :friendships
+
   get "home/index"
 
   get "comments/create"
