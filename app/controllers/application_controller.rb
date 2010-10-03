@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
 #  before_filter :authorize, :except => :login
   protect_from_forgery
- 
+	def current_user
+		@current_user || User.find(seesion[:user_id])
+	end 
   
 protected
   def authorize

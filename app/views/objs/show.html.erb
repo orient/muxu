@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/header'%>
+
 
 <div id="main" class="container_12 no_bg">
 	<div id="page_content">
@@ -20,12 +20,7 @@
 		</div>
 		<div id="activity_col" class="grid_7 alpha">
 		<h3>最新动态</h3>
-		
-		<% form_for ([@obj, @obj.comments.build]) do |f|%>
-				<%= f.text_field :content%>
-				<%= f.submit "提交评论"%>
-		<% end %>
-		
+
 		<div class="feed_items">
 		
 	
@@ -38,8 +33,8 @@
 					<a href=""><img src="" width="30px" height="30px"/></a>
 				</div>
 				<div class="feed_meta grid_6 omega">
-					<p class="author_action"><%= %>在<a href="item_page.html">big bang 第四季</a>签到</p>
-					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
+					<p class="author_action"><%= link_to comm.user.nickname,user_path(comm.user) %>在<%= link_to comm.obj.name, obj_path(comm.obj)%>签到</p>
+					<p class="feed_actions"><span><%= time_ago_in_words(comm.created_at)%></span><a href="">添加回复</a></p>
 				</div>
 				<div class="feed_reaction"></div>
 			</div>
@@ -54,83 +49,7 @@
 						
 			<% end %>
 			
-			
-			<div class="feed_item">
-			<div class="item_header">
-				<div class="user_image" style="float:left;">
-					<a href=""><img src="" width="30px" height="30px"/></a>
-				</div>
-				<div class="feed_meta grid_6 omega">
-					<p class="author_action"><a href="member_page.html">小强</a>在<a href="item_page.html">big bang 第四季</a>签到</p>
-					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
-				</div>
-				<div class="feed_reaction"></div>
-			</div>
-			<div class="item_content">
-				<div class="checkin_image" style="float:left"><img src="" width="50px" height="75px"/></div>
-				<div class="checkin_body grid_5">在<a href="item_page.html">big bang 第四季</a>签到</div>
-			</div>
-			<div class="replay_content"></div>
-			<div class="replay_form"></div>
-			<div class="clear"></div>
-			</div>
-			<div class="feed_item">
-			<div class="item_header">
-				<div class="user_image" style="float:left;">
-					<a href=""><img src="" width="30px" height="30px"/></a>
-				</div>
-				<div class="feed_meta grid_6 omega">
-					<p class="author_action"><a href="member_page.html">小强</a>在<a href="item_page.html">big bang 第四季</a>签到</p>
-					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
-				</div>
-				<div class="feed_reaction"></div>
-			</div>
-			<div class="item_content">
-				<div class="checkin_image" style="float:left"><img src="" width="50px" height="75px"/></div>
-				<div class="checkin_body grid_5">在<a href="item_page.html">big bang 第四季</a>签到</div>
-			</div>
-			<div class="replay_content"></div>
-			<div class="replay_form"></div>
-			<div class="clear"></div>
-			</div>
-			<div class="feed_item">
-			<div class="item_header">
-				<div class="user_image" style="float:left;">
-					<a href=""><img src="" width="30px" height="30px"/></a>
-				</div>
-				<div class="feed_meta grid_6 omega">
-					<p class="author_action"><a href="member_page.html">小强</a>在<a href="item_page.html">big bang 第四季</a>签到</p>
-					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
-				</div>
-				<div class="feed_reaction"></div>
-			</div>
-			<div class="item_content">
-				<div class="checkin_image" style="float:left"><img src="" width="50px" height="75px"/></div>
-				<div class="checkin_body grid_5">在<a href="item_page.html">big bang 第四季</a>签到</div>
-			</div>
-			<div class="replay_content"></div>
-			<div class="replay_form"></div>
-			<div class="clear"></div>
-			</div>
-			<div class="feed_item">
-			<div class="item_header">
-				<div class="user_image" style="float:left;">
-					<a href=""><img src="" width="30px" height="30px"/></a>
-				</div>
-				<div class="feed_meta grid_6 omega">
-					<p class="author_action"><a href="member_page.html">小强</a>在<a href="item_page.html">big bang 第四季</a>签到</p>
-					<p class="feed_actions"><span>3分钟前</span><a href="">添加回复</a></p>
-				</div>
-				<div class="feed_reaction"></div>
-			</div>
-			<div class="item_content">
-				<div class="checkin_image" style="float:left"><img src="" width="50px" height="75px"/></div>
-				<div class="checkin_body grid_5">在<a href="item_page.html">big bang 第四季</a>签到</div>
-			</div>
-			<div class="replay_content"></div>
-			<div class="replay_form"></div>
-			<div class="clear"></div>
-			</div>
+
 		</div>
 		</div>
 		<div id="social_col" class="grid_3">
@@ -151,7 +70,7 @@
 	
 </div>
 
-<%= render :partial =>'layouts/footer'%>
+
 
 
 

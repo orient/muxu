@@ -12,6 +12,9 @@
   </tr>
 
 <% @objs.each do |obj| %>
+    <%obj.comments.each do |comment|%>
+     <%= comment.user.nickname%>
+    <%end%>
   <tr>
     <td><%= obj.name %></td>
     <td><%= obj.cat %></td>
