@@ -1,0 +1,59 @@
+<%= form_for @user,:html => {:multipart => true} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="main" class="container_12 no_bg">
+	<div id="setting" class="grid_10 prefix_1">
+		<div>
+		<h1>个人设置</h1>
+		<div id="settingmenu"><span><a href="">账户信息</a></span></div>
+		</div>
+		
+			<table>
+				<tbody>
+				<tr>
+					<th><label for="name">真实姓名</label></th>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<th><label for="nickname">用户名</label></th>
+					<td><%= f.text_field :nickname %></td>
+				</tr>
+				
+				<tr>
+					<th><label for="photo">个人头像</label></th>
+					<td>
+					<div>
+						<%= image_tag @user.photo.url(:thumb)%>
+					</div>
+					<div><%= f.file_field :photo %></div></td>
+					
+				</tr>
+				
+				
+				<tr>
+					<th></th>
+					<td><span><%= f.submit "保存设置"%></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+		
+		
+		
+		
+	</div>
+	<div class="clear"></div>
+	
+</div>
+
+<% end %>

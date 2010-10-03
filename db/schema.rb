@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929072321) do
+ActiveRecord::Schema.define(:version => 20101003081331) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20100929072321) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["user_id"], :name => "FK_comments_user"
 
   create_table "objs", :force => true do |t|
     t.string   "name"
@@ -56,6 +58,10 @@ ActiveRecord::Schema.define(:version => 20100929072321) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

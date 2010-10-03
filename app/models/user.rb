@@ -2,6 +2,13 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+
+include Paperclip
+	has_attached_file :photo, :styles =>{:medium=>"160x160>", :thumb =>"80x80>"}
+	validates_attachment_presence :photo
+	validates_attachment_size :photo, :less_than =>3.megabytes
+	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
+
 	has_many :comments
 	has_many :objs, :through=>:comments
 	

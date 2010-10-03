@@ -9,7 +9,7 @@
 			<% @comments_hot_index.each do |hot_comm|%>
 			
 			
-			<li class="grid_2"><p><%= image_tag hot_comm.obj.image.url(:medium)%></p><p><%= link_to hot_comm.obj.name, obj_path(hot_comm.obj)%></p></li>
+			<li class="grid_2"><p><%= image_tag hot_comm.obj.image.url(:medium), :size => "140x160"%></p><p><%= link_to hot_comm.obj.name, obj_path(hot_comm.obj)%></p></li>
 			<% end %>
 			</ul>
 		
@@ -69,7 +69,7 @@
 			<ul class="grid_4 alpha">
 			<% @comments_index.each do |comm|%>
 				<li class="grid_4 alpha omega">
-				<div class="pics grid_1 alpha"><img width="60px" height="60px" src="" /></div>
+				<div class="pics grid_1 alpha"><%= image_tag comm.user.photo.url(:thumb), :size => "60x60" %></div>
 				<div class="content grid_3 alpha omega"><%= link_to comm.user.nickname, user_path(comm.user)%>正在观看<%= link_to comm.obj.name, obj_path(comm)%></div>
 				</li>
 			<% end %>
